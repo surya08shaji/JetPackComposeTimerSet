@@ -151,28 +151,26 @@ fun Timer(
             if (visible)
                 Button(
                     onClick = {
-
-                        visible = !visible
-                        if (visible) {
-                            progress.value = 1f
-
+                        if (editHoursValue.isBlank() && editMinutesValue.isBlank() && editSecondsValue.isBlank()) {
+                            Toast.makeText(
+                                context,
+                                "Please Add Time",
+                                Toast.LENGTH_LONG
+                            ).show()
                         } else {
 
-                            hou = if (editHoursValue.isBlank()) 0 else editHoursValue.toInt()
-                            min = if (editMinutesValue.isBlank()) 0 else editMinutesValue.toInt()
-                            sec = if (editSecondsValue.isBlank()) 0 else editSecondsValue.toInt()
+                            visible = !visible
+                            if (visible) {
+                                progress.value = 1f
 
-                            if (editHoursValue.isBlank()) {
-                                if (editMinutesValue.isBlank()) {
-                                    if (editSecondsValue.isBlank()) {
-                                        Toast.makeText(
-                                            context,
-                                            "Please Add Time",
-                                            Toast.LENGTH_LONG
-                                        ).show()
-                                    }
-                                }
                             } else {
+
+                                hou = if (editHoursValue.isBlank()) 0 else editHoursValue.toInt()
+                                min =
+                                    if (editMinutesValue.isBlank()) 0 else editMinutesValue.toInt()
+                                sec =
+                                    if (editSecondsValue.isBlank()) 0 else editSecondsValue.toInt()
+
                                 val times = hou * 60 * 60 +
                                         min * 60 +
                                         sec
