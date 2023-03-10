@@ -31,7 +31,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             JPComposeTimerSetTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
@@ -318,9 +317,7 @@ fun RowScope.DisplayTime(
             .align(Alignment.CenterVertically),
         textAlign = textAlign,
         fontSize = fontSize,
-//        fontFamily = FontFamily.Cursive,
         color = textColor,
-//        style = MaterialTheme.typography.bodyLarge
     )
     if (label.isNotEmpty()) {
         Text(
